@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "302910025572",
+    "project_id": "albus-83526",
+    "storage_bucket": "albus-83526.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:302910025572:android:65a1bff7ff67454fca9471",
+        "android_client_info": {
+          "package_name": "com.project.albus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "302910025572-pqjna2c6v3nt0ge8necu6u3b4hihtru6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.project.albus",
+            "certificate_hash": "5c6b486e7575fed856da77f8c8672495978437a2"
+          }
+        },
+        {
+          "client_id": "302910025572-7seqa1dppnrq0uulk22bfnlbshq3oc1a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRkG9-dLaWg3yYenBkCF_TOK-BIFu25sQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "302910025572-7seqa1dppnrq0uulk22bfnlbshq3oc1a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

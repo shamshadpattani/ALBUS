@@ -1,4 +1,4 @@
-package com.autosmarts.albus
+package com.project.albus
 
 import org.junit.Test
 

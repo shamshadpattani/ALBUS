@@ -1,4 +1,4 @@
-package com.autosmarts.albus
+package com.project.albus
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
