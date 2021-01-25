@@ -9,4 +9,12 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="crate_batch_head">No Batches</string>
+    <string name="dummy_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Proin posuere luctus ultrices. Sed vitae ornare urna. Curabitur non
+        dui neque.</string>
+    <string name="joing_batch_text">CREATE A BATCH</string>
+    <string name="or_text">--OR--</string>
 </resources>

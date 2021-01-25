@@ -10,8 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ALBUS">
         <activity
-            android:name=".MainActivity"
-            android:label="@string/title_activity_login" />
+            android:name=".MainActivity" />
         <activity android:name=".ui.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
