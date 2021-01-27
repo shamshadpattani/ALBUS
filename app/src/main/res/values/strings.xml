@@ -1,21 +1,31 @@
 <resources>
     <string name="app_name">ALBUS</string>
     <string name="title_activity_login">LoginActivity</string>
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
+    <string name="title_create_branch">Create OR Join</string>
     <string name="welcome">"Welcome !"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
+
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="crate_batch_head">No Batches</string>
     <string name="dummy_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Proin posuere luctus ultrices. Sed vitae ornare urna. Curabitur non
+        Proin posuere luctus ultrices. Sed vitae ornate urna. Curabitur non
         dui neque.</string>
     <string name="joing_batch_text">JOIN A BATCH</string>
     <string name="cre_batch_text">CREATE A BATCH</string>
     <string name="or_text">--OR--</string>
+    <string name="go_save">Go</string>
+    <string name="enter_code_hint_text">code here</string>
+    <string name="enter_invite_code">Enter Invite Code:</string>
+    <string name="title_shecdule">Schedule</string>
+    
+    <string name="dummy_heading_title">BSC04:Theory Session</string>
+    <string name="dummy_date_text">20 jan 2021  4:00 PM</string>
+    <string name="dummy_place_text">BIT ROOM 234</string>
+
+    <string name="batch_Name_text">Batch Name:</string>
+    <string name="create_btn_text">Create</string>
+    <string name="enter_batch_name_here">Batch name here</string>
+    <string name="share_code">SHARE CODE</string>
 </resources>

@@ -13,4 +13,12 @@
     <color name="textColorPrimary">#101010</color>
     <color name="textColorSecondary">#606060</color>
     <color name="textColorInverse">#FEFEFE</color>
+
+
+    <color name="colorSurface">#FFFFFF</color>
+    <color name="colorOnSurface">@color/textColorPrimary</color>
+    <color name="colorDivider">#11000000</color>
+
+    <color name="colorSecondarySurface">#f0f0f0</color>
+    <color name="colorSecondarySurfaceDivider">#22000000</color>
 </resources>

@@ -108,7 +108,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         if (user != null) {
             startActivity(Intent(this,MainActivity::class.java))
         } else {
-            Toast.makeText(this, "${user?.displayName}", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, " ", Toast.LENGTH_SHORT).show()
         }
     }
 

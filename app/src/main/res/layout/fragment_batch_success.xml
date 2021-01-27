@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.ScheduleFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.14" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/batchCreatedHead"
+        style="@style/TextAppearance.albus.Headline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Batch Created"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/batchCreatedSub"
+        style="@style/TextAppearance.albus.BodySecondary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/line_spacing"
+        android:text="Share the Invite code for others to join"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/batchCreatedHead"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/codeText"
+        android:layout_marginTop="@dimen/extra_margin"
+        style="@style/TextAppearance.albus.Headline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="B6GP7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/batchCreatedSub"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/share_code_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/btn_bg_color"
+        android:text="@string/share_code"
+        android:layout_marginTop="@dimen/element_spacing"
+        app:layout_constraintEnd_toStartOf="@+id/codeText"
+        app:layout_constraintStart_toStartOf="@+id/codeText"
+        app:layout_constraintTop_toBottomOf="@+id/codeText" />
+
+    <Button
+        android:id="@+id/done_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/element_spacing"
+        android:layout_marginStart="@dimen/double_margin"
+        android:backgroundTint="@color/btn_bg_color"
+        android:text="@string/share_code"
+        app:layout_constraintEnd_toEndOf="@+id/codeText"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/share_code_btn"
+        app:layout_constraintTop_toBottomOf="@+id/codeText" />
+</androidx.constraintlayout.widget.ConstraintLayout>

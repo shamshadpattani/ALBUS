@@ -10,8 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ALBUS">
         <activity
-            android:name=".MainActivity" />
-        <activity android:name=".ui.LoginActivity">
+            android:name=".ui.LoginActivity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
