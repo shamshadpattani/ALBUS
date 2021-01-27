@@ -15,6 +15,7 @@
     <string name="dummy_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         Proin posuere luctus ultrices. Sed vitae ornare urna. Curabitur non
         dui neque.</string>
-    <string name="joing_batch_text">CREATE A BATCH</string>
+    <string name="joing_batch_text">JOIN A BATCH</string>
+    <string name="cre_batch_text">CREATE A BATCH</string>
     <string name="or_text">--OR--</string>
 </resources>
