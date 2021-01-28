@@ -4,13 +4,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/batchFragment">
+
 
     <fragment
-        android:id="@+id/navigation_home"
+        android:id="@+id/batchFragment"
         android:name="com.project.albus.ui.BatchFragment"
-        android:label="@string/title_activity_login"
-        tools:layout="@layout/fragment_batch" >
+        android:label="BatchFragment"
+        tools:layout="@layout/fragment_batch">
+        <action
+            android:id="@+id/action_batchFragment_to_inviteFragment"
+            app:destination="@id/inviteFragment" />
+        <action
+            android:id="@+id/action_batchFragment_to_createFragment"
+            app:destination="@id/createFragment" />
     </fragment>
-
+    <fragment
+        android:id="@+id/createFragment"
+        android:name="com.project.albus.ui.CreateFragment"
+        android:label="CreateFragment"
+        tools:layout="@layout/fragment_create_batch"/>
+    <fragment
+        android:id="@+id/inviteFragment"
+        android:name="com.project.albus.ui.InviteFragment"
+        android:label="InviteFragment"
+        tools:layout="@layout/fragment_invite"/>
 </navigation>

@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">ALBUS</string>
     <string name="title_activity_login">LoginActivity</string>
+    <string name="title_batch">Batch</string>
+    <string name="title_create">Create Batch</string>
     <string name="title_create_branch">Create OR Join</string>
     <string name="welcome">"Welcome !"</string>
 
@@ -28,4 +30,8 @@
     <string name="create_btn_text">Create</string>
     <string name="enter_batch_name_here">Batch name here</string>
     <string name="share_code">SHARE CODE</string>
+    <string name="name_text">Name</string>
+    <string name="date">Date</string>
+    <string name="location">Location</string>
+    <string name="note">Note</string>
 </resources>
