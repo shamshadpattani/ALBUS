@@ -4,10 +4,10 @@ data class BatchDetails (
     var name: String,
     var code:String,
     var owner:String,
-    var members:List<String>?,
-    var schedules: List<ScheduleData>?
+    var members:MutableList<String> = mutableListOf(),
+    var schedules: MutableList<ScheduleData> = mutableListOf()
 )
 {
    constructor() : this(""," ","",
-            emptyList(), emptyList())
+            mutableListOf(), mutableListOf())
     }
