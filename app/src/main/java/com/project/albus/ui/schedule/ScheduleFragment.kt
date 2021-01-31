@@ -1,4 +1,4 @@
-package com.project.albus.ui
+package com.project.albus.ui.schedule
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,6 +12,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.project.albus.R
 import com.project.albus.data.BatchDetails
 import com.project.albus.databinding.FragmentScheduleBindingImpl
+import com.project.albus.ui.batch.BatchQuickAdapter
+import com.project.albus.ui.MainViewModel
+import kotlinx.android.synthetic.main.fragment_create_batch.view.*
+import kotlinx.android.synthetic.main.fragment_create_batch.view.createBtn
+import kotlinx.android.synthetic.main.fragment_create_or_join.view.*
 import kotlinx.android.synthetic.main.fragment_schedule.*
 
 
@@ -48,8 +53,6 @@ class ScheduleFragment : Fragment() {
           if (it != null) {
               mAdapter.updateItems(it)
           }else{
-              val action = ScheduleFragmentDirections.actionScheduleFragmentToBatchFragment()
-              findNavController().navigate(action)
           }
       })
     }
@@ -66,7 +69,18 @@ class ScheduleFragment : Fragment() {
 
         mAdapter.setOnItemClickListener { adapter, view, position ->
             val data= adapter.data[position] as BatchDetails
-            val action = ScheduleFragmentDirections.actionScheduleFragmentToBatchDetailsFragment(data.code)
+            val action =
+                ScheduleFragmentDirections.actionScheduleFragmentToBatchDetailsFragment(data.code)
+            findNavController().navigate(action)
+        }
+        val eds = layoutInflater.inflate(R.layout.fragment_create_or_join,recyclerview,false)
+        mAdapter.setEmptyView(eds)
+        eds.createBtn.setOnClickListener {
+            val action = ScheduleFragmentDirections.actionScheduleFragmentToCreateFragment()
+            findNavController().navigate(action)
+        }
+        eds.joinBtn.setOnClickListener {
+            val action = ScheduleFragmentDirections.actionScheduleFragmentToInviteFragment()
             findNavController().navigate(action)
         }
     }

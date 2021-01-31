@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable name="viewmodel"
+                type="com.project.albus.ui.MainViewModel"/>
+    </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.ScheduleFragment">
+    tools:context=".ui.schedule.ScheduleFragment">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -42,6 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:imeOptions="actionNext"
+            android:text="@={viewmodel.subjectName}"
             android:inputType="textAutoCorrect|textCapSentences|textMultiLine" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -54,6 +60,7 @@
         android:layout_marginStart="@dimen/element_spacing"
         android:layout_marginEnd="@dimen/element_spacing"
         android:hint="@string/date"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputName">
@@ -63,6 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:imeOptions="actionNext"
+            android:text="@={viewmodel.date}"
             android:inputType="textAutoCorrect|textCapSentences|textMultiLine" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -84,6 +92,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:imeOptions="actionNext"
+            android:text="@={viewmodel.location}"
             android:inputType="textAutoCorrect|textCapSentences|textMultiLine" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -106,6 +115,8 @@
             android:layout_height="wrap_content"
             android:imeOptions="actionNext"
             android:lines="3"
+            android:text="@={viewmodel.note}"
             android:inputType="textMultiLine" />
     </com.google.android.material.textfield.TextInputLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

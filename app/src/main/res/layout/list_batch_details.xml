@@ -9,7 +9,7 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/element_spacing"
 
-    tools:context=".ui.ScheduleFragment">
+    tools:context=".ui.schedule.ScheduleFragment">
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/subjectTitle"
                 style="@style/TextAppearance.albus.Body"
@@ -36,7 +36,7 @@
                 tools:text="@string/dummy_date_text" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/subjectPlaceOrMember"
+                android:id="@+id/subjectLocation"
                 style="@style/TextAppearance.albus.BodySecondary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

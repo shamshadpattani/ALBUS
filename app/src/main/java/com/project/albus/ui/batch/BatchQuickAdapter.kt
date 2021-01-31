@@ -1,4 +1,4 @@
-package com.project.albus.ui
+package com.project.albus.ui.batch
 
 
 import com.chad.library.adapter.base.BaseQuickAdapter
@@ -10,7 +10,7 @@ class BatchQuickAdapter(data: MutableList<BatchDetails>?):
         BaseQuickAdapter<BatchDetails,BaseViewHolder>(R.layout.list_schedule,data as MutableList<BatchDetails>) {
 
     override fun convert(holder: BaseViewHolder, item: BatchDetails) {
-        holder.setText(R.id.subjectDate, item.schedules?.get(0)?.date?:"Nothing scheduled")
+        holder.setText(R.id.subjectDate, item.schedules?.getOrNull(0)?.date?:"Nothing scheduled")
             .setText(R.id.subjectPlaceOrMember,"${item.members?.size?:"0"} Members" )
             .setText(R.id.subjectTitle,item.name)
     }

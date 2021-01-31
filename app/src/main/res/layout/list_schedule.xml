@@ -7,7 +7,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".ui.ScheduleFragment">
+    tools:context=".ui.schedule.ScheduleFragment">
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"

@@ -15,12 +15,13 @@
         Proin posuere luctus ultrices. Sed vitae ornate urna. Curabitur non
         dui neque.</string>
     <string name="joing_batch_text">JOIN A BATCH</string>
+    <string name="create_shcedule_text">Create Schedule</string>
     <string name="cre_batch_text">CREATE A BATCH</string>
     <string name="or_text">--OR--</string>
     <string name="go_save">Go</string>
     <string name="enter_code_hint_text">code here</string>
     <string name="enter_invite_code">Enter Invite Code:</string>
-    <string name="title_shecdule">Schedule</string>
+    <string name="title_shecdule">Batches</string>
     
     <string name="dummy_heading_title">BSC04:Theory Session</string>
     <string name="dummy_date_text">20 jan 2021  4:00 PM</string>

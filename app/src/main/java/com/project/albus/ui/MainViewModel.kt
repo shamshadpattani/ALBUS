@@ -7,6 +7,7 @@ import com.aventrix.jnanoid.jnanoid.NanoIdUtils
 import com.project.albus.data.BatchRepository
 import java.util.*
 import com.project.albus.data.BatchDetails
+import com.project.albus.data.ScheduleData
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -29,6 +30,11 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     val code: MutableLiveData<String> = MutableLiveData()
     val batchName: MutableLiveData<String> = MutableLiveData()
+
+    val subjectName: MutableLiveData<String> = MutableLiveData()
+    val date: MutableLiveData<String> = MutableLiveData()
+    val location: MutableLiveData<String> = MutableLiveData()
+    val note: MutableLiveData<String> = MutableLiveData()
 
     fun saveModel() {
         val alphabet = charArrayOf(
@@ -115,6 +121,18 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 var savedbatchDetails: BatchDetails? = value?.toObject(BatchDetails::class.java)
             _batchDetails.value = savedbatchDetails
         }
+    }
+
+    fun updateSchedules(code: String) {
+       var scheduleData:List<ScheduleData> = listOf(ScheduleData(name = subjectName.value,note = note.value,location = location.value,date =date.value))
+        batchRepo.update(scheduleData,code)?.addOnFailureListener {
+            Log.e(TAG, "Failed to save Batch!")
+            _isSaved.postValue(false)
+        }
+            ?.addOnSuccessListener {
+                Log.e(TAG, "Success to save Batch!")
+                _isSaved.postValue(true)
+            }
     }
 
 }
