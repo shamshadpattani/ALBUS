@@ -23,10 +23,19 @@
         android:id="@+id/createFragment"
         android:name="com.project.albus.ui.CreateFragment"
         android:label="CreateFragment"
-        tools:layout="@layout/fragment_create_batch"/>
+        tools:layout="@layout/fragment_create_batch">
+        <action
+            android:id="@+id/action_createFragment_to_batchSuccessFragment"
+            app:destination="@id/batchSuccessFragment" />
+    </fragment>
     <fragment
         android:id="@+id/inviteFragment"
         android:name="com.project.albus.ui.InviteFragment"
         android:label="InviteFragment"
         tools:layout="@layout/fragment_invite"/>
+    <fragment
+        android:id="@+id/batchSuccessFragment"
+        android:name="com.project.albus.ui.BatchSuccessFragment"
+        android:label="BatchSuccessFragment"
+        tools:layout="@layout/fragment_batch_success"/>
 </navigation>

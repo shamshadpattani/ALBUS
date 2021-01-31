@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable name="viewmodel"
+            type="com.project.albus.ui.MainViewModel"/>
+    </data>
+
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -44,21 +50,20 @@
         style="@style/TextAppearance.albus.Headline4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="B6GP7"
+        tools:text="B6GP7"
+        android:text="@{viewmodel.code}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/batchCreatedSub"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/batchCreatedSub" />
 
     <Button
         android:id="@+id/share_code_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/element_spacing"
         android:backgroundTint="@color/btn_bg_color"
         android:text="@string/share_code"
-        android:layout_marginTop="@dimen/element_spacing"
-        app:layout_constraintEnd_toStartOf="@+id/codeText"
-        app:layout_constraintStart_toStartOf="@+id/codeText"
+        app:layout_constraintStart_toStartOf="@+id/batchCreatedSub"
         app:layout_constraintTop_toBottomOf="@+id/codeText" />
 
     <Button
@@ -66,11 +71,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/element_spacing"
-        android:layout_marginStart="@dimen/double_margin"
         android:backgroundTint="@color/btn_bg_color"
-        android:text="@string/share_code"
-        app:layout_constraintEnd_toEndOf="@+id/codeText"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/share_code_btn"
+        android:text="@string/go_save"
+        app:layout_constraintEnd_toEndOf="@+id/batchCreatedSub"
         app:layout_constraintTop_toBottomOf="@+id/codeText" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
