@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/element_spacing"
+
+    tools:context=".ui.ScheduleFragment">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/subjectTitle"
+                style="@style/TextAppearance.albus.Body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/element_spacing"
+                android:layout_marginTop="@dimen/element_spacing"
+                android:text=""
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:text="@string/dummy_heading_title" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/subjectDate"
+                style="@style/TextAppearance.albus.BodySecondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/element_spacing"
+                android:textColor="@color/btn_bg_color"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/subjectTitle"
+                tools:ignore="MissingConstraints"
+                tools:text="@string/dummy_date_text" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/subjectPlaceOrMember"
+                style="@style/TextAppearance.albus.BodySecondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/element_spacing"
+                android:text="@string/dummy_place_text"
+                android:layout_marginBottom="@dimen/double_margin"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/subjectDate"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

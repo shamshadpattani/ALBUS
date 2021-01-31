@@ -5,14 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.project.albus.R
-import kotlinx.android.synthetic.main.fragment_batch.*
+import kotlinx.android.synthetic.main.fragment_batch_details.*
 
 
-class BatchFragment : Fragment() {
+class BatchDetailsFragment : Fragment() {
 
-
+   private val args: BatchDetailsFragmentArgs by navArgs()
+   private  lateinit var viewModel: MainViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -23,7 +24,8 @@ class BatchFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_batch, container, false)
+
+        return inflater.inflate(R.layout.fragment_batch_details, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -32,15 +34,7 @@ class BatchFragment : Fragment() {
     }
 
     private fun init() {
-        joinBtn.setOnClickListener {
-            val action = BatchFragmentDirections.actionBatchFragmentToInviteFragment()
-            findNavController().navigate(action)
-        }
-        createBtn.setOnClickListener {
-            val action = BatchFragmentDirections.actionBatchFragmentToCreateFragment()
-            findNavController().navigate(action)
-        }
 
+       toolbar.title=args.code
     }
-
 }

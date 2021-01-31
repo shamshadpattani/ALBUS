@@ -4,14 +4,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/batchFragment">
+    app:startDestination="@+id/scheduleFragment">
 
 
     <fragment
         android:id="@+id/batchFragment"
-        android:name="com.project.albus.ui.BatchFragment"
+        android:name="com.project.albus.ui.batch.CreateOrJoinFragment"
         android:label="BatchFragment"
-        tools:layout="@layout/fragment_batch">
+        tools:layout="@layout/fragment_create_or_join">
         <action
             android:id="@+id/action_batchFragment_to_inviteFragment"
             app:destination="@id/inviteFragment" />
@@ -21,7 +21,7 @@
     </fragment>
     <fragment
         android:id="@+id/createFragment"
-        android:name="com.project.albus.ui.CreateFragment"
+        android:name="com.project.albus.ui.batch.CreateFragment"
         android:label="CreateFragment"
         tools:layout="@layout/fragment_create_batch">
         <action
@@ -30,12 +30,38 @@
     </fragment>
     <fragment
         android:id="@+id/inviteFragment"
-        android:name="com.project.albus.ui.InviteFragment"
+        android:name="com.project.albus.ui.batch.InviteFragment"
         android:label="InviteFragment"
         tools:layout="@layout/fragment_invite"/>
     <fragment
         android:id="@+id/batchSuccessFragment"
-        android:name="com.project.albus.ui.BatchSuccessFragment"
+        android:name="com.project.albus.ui.batch.BatchSuccessFragment"
         android:label="BatchSuccessFragment"
-        tools:layout="@layout/fragment_batch_success"/>
+        tools:layout="@layout/fragment_batch_success">
+        <action
+            android:id="@+id/action_batchSuccessFragment_to_scheduleFragment"
+            app:destination="@id/scheduleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/scheduleFragment"
+        android:name="com.project.albus.ui.ScheduleFragment"
+        android:label="fragment_schedule"
+        tools:layout="@layout/fragment_schedule" >
+        <action
+            android:id="@+id/action_scheduleFragment_to_batchFragment"
+            app:destination="@id/batchFragment" />
+        <action
+            android:id="@+id/action_scheduleFragment_to_batchDetailsFragment"
+            app:destination="@id/batchDetailsFragment" >
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/batchDetailsFragment"
+        android:name="com.project.albus.ui.BatchDetailsFragment"
+        android:label="BatchDetailsFragment"
+        tools:layout="@layout/fragment_batch_details">
+        <argument
+            android:name="code"
+            app:argType="string" />
+    </fragment>
 </navigation>

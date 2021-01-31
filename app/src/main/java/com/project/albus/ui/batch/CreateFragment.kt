@@ -1,4 +1,4 @@
-package com.project.albus.ui
+package com.project.albus.ui.batch
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,17 +7,11 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.get
 import androidx.navigation.fragment.findNavController
-import com.aventrix.jnanoid.jnanoid.NanoIdUtils
 import com.project.albus.R
 import com.project.albus.databinding.FragmentCreateBatchBinding
-import kotlinx.android.synthetic.main.fragment_batch.*
-import kotlinx.android.synthetic.main.fragment_batch.createBtn
+import com.project.albus.ui.MainViewModel
 import kotlinx.android.synthetic.main.fragment_create_batch.*
-import java.util.*
-
 
 
 class CreateFragment : Fragment() {

@@ -1,4 +1,4 @@
-package com.project.albus.ui
+package com.project.albus.ui.batch
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
