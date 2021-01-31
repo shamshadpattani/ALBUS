@@ -51,14 +51,23 @@ class ScheduleFragment : Fragment() {
     private fun observer() {
       mainViewModel.getBatches().observe(viewLifecycleOwner,{
           if (it != null) {
-              mAdapter.updateItems(it)
+             mAdapter.updateItems(it)
           }else{
           }
       })
     }
 
     private fun init() {
-
+        toolbar.setOnMenuItemClickListener {
+            if(it.itemId==R.id.menu_filter) {
+                val action = ScheduleFragmentDirections.actionScheduleFragmentToCreateFragment()
+                findNavController().navigate(action)
+        }else if(it.itemId==R.id.menu_info){
+                val action = ScheduleFragmentDirections.actionScheduleFragmentToInviteFragment()
+                findNavController().navigate(action)
+            }
+            true
+    }
     }
 
     private fun initAdapter() {
