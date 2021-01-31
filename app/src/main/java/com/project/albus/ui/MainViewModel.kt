@@ -4,14 +4,9 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.*
 import com.aventrix.jnanoid.jnanoid.NanoIdUtils
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestoreException
-import com.google.firebase.firestore.QuerySnapshot
 import com.project.albus.data.BatchRepository
 import java.util.*
-import com.google.firebase.ktx.Firebase
 import com.project.albus.data.BatchDetails
-import kotlinx.coroutines.launch
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -19,8 +14,11 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val batchRepo: BatchRepository = BatchRepository(getApplication())
 
 
-    private val _savedBatchDetails = MutableLiveData<List<BatchDetails>?>()
-    val savedBatchDetails: MutableLiveData<List<BatchDetails>?> = _savedBatchDetails
+    private val _savedBatchDetailsList = MutableLiveData<List<BatchDetails>?>()
+    val savedBatchDetailsList: MutableLiveData<List<BatchDetails>?> = _savedBatchDetailsList
+
+    private val _batchDetails = MutableLiveData<BatchDetails?>()
+    val batchDetails: MutableLiveData<BatchDetails?> = _batchDetails
 
 
     private val _dataLoading = MutableLiveData<Boolean>(false)
@@ -92,20 +90,33 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         batchRepo.getSavedBatch().addSnapshotListener { value, e ->
             if (e != null) {
                 Log.w(TAG, "Listen failed.", e)
-                _savedBatchDetails.value=null
+                _savedBatchDetailsList.value = null
                 return@addSnapshotListener
             }
 
-            var savedAddressList : MutableList<BatchDetails> = mutableListOf()
+            var savedBatchDetails: MutableList<BatchDetails> = mutableListOf()
             for (doc in value!!) {
-                var addressItem = doc.toObject(BatchDetails::class.java)
-                savedAddressList.add(addressItem)
+                var batchItems = doc.toObject(BatchDetails::class.java)
+                savedBatchDetails.add(batchItems)
             }
-            _savedBatchDetails.value = savedAddressList
+            _savedBatchDetailsList.value = savedBatchDetails
         }
-        return _savedBatchDetails
-        }
-}
+        return _savedBatchDetailsList
+    }
 
+    //get schedules page
+    fun getDetails(code: String) {
+        batchRepo.getDetails(code).addSnapshotListener { value, e ->
+            if (e != null) {
+                Log.w(TAG, "Listen failed.", e)
+                _batchDetails.value = null
+                return@addSnapshotListener
+            }
+                var savedbatchDetails: BatchDetails? = value?.toObject(BatchDetails::class.java)
+            _batchDetails.value = savedbatchDetails
+        }
+    }
+
+}
 
 

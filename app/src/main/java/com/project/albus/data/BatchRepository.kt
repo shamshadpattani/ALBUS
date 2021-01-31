@@ -2,22 +2,9 @@ package com.project.albus.data
 
 
 import android.app.Application
-import android.util.Log
-import android.widget.Toast
-import androidx.lifecycle.LiveData
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.google.firebase.firestore.*
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.cancel
-import kotlinx.coroutines.channels.awaitClose
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.callbackFlow
-import kotlinx.coroutines.flow.flowOn
-import kotlinx.coroutines.tasks.await
 
 
 class BatchRepository(c: Application) {
@@ -37,6 +24,10 @@ class BatchRepository(c: Application) {
 
     fun getSavedBatch(): CollectionReference {
         return firestoreDB.collection("Batch")
+    }
+
+    fun getDetails(code: String): DocumentReference {
+        return firestoreDB.collection("Batch").document(code)
     }
 
 
