@@ -22,6 +22,8 @@ class CreateFragment : Fragment() {
 
     lateinit var binding: FragmentCreateBatchBinding
     private lateinit var  mainViewModel: MainViewModel
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
