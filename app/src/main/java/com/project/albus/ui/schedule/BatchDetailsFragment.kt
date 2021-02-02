@@ -56,19 +56,21 @@ class BatchDetailsFragment : Fragment() {
         viewModel.batchDetails.observe(viewLifecycleOwner,{batch->
             toolbar.title=batch?.name
             if(!batch?.schedules.isNullOrEmpty()){
+                nothingScheduledView.visibility=View.GONE
                 mAdapter.updateItems(batch?.schedules!!)
             }else{
-                nothingScheduledView.visibility=View.VISIBLE
                 var user = FirebaseAuth.getInstance().currentUser?.uid
+                nothingScheduledView.visibility=View.VISIBLE
                 if(user==batch?.owner){
                     scheduleCreateBtn.visibility=View.VISIBLE
                     scheduleCreateBtn.setOnClickListener {
                         val action = BatchDetailsFragmentDirections.actionBatchDetailsFragmentToCreateScheduleFragment(args.code)
                         findNavController().navigate(action)
                     }
+                }else{
+                    scheduleCreateBtn.visibility=View.GONE
                 }
             }
-
         })
     }
 
