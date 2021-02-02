@@ -32,6 +32,7 @@ class CreateScheduleFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_create_schedules, container, false)
+        binding.viewmodel=viewModel
         binding.lifecycleOwner = this
         return binding.root
     }

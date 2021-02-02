@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.fragment_batch_details.*
 
 
 class BatchDetailsFragment : Fragment() {
-    var user = FirebaseAuth.getInstance().currentUser?.uid
+
     lateinit var binding: FragmentBatchDetailsBindingImpl
    private val args: BatchDetailsFragmentArgs by navArgs()
     private lateinit var mAdapter: ScheduleItemQuickAdapter
@@ -59,7 +59,8 @@ class BatchDetailsFragment : Fragment() {
                 mAdapter.updateItems(batch?.schedules!!)
             }else{
                 nothingScheduledView.visibility=View.VISIBLE
-                if(user==batch!!.owner){
+                var user = FirebaseAuth.getInstance().currentUser?.uid
+                if(user==batch?.owner){
                     scheduleCreateBtn.visibility=View.VISIBLE
                     scheduleCreateBtn.setOnClickListener {
                         val action = BatchDetailsFragmentDirections.actionBatchDetailsFragmentToCreateScheduleFragment(args.code)
