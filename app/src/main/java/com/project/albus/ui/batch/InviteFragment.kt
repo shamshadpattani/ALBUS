@@ -7,6 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.ktx.Firebase
 import com.project.albus.R
 import com.project.albus.databinding.FragmentCreateSchedulesBinding
 import com.project.albus.databinding.FragmentInviteBinding
@@ -16,6 +19,7 @@ import kotlinx.android.synthetic.main.fragment_invite.*
 
 class InviteFragment : Fragment() {
     lateinit var binding: FragmentInviteBinding
+    private var user = FirebaseAuth.getInstance()
     private  val viewModel: MainViewModel by activityViewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +44,17 @@ class InviteFragment : Fragment() {
     }
 
     private fun observer() {
+        viewModel.batchDetails.observe(viewLifecycleOwner,{batch->
+            if (batch != null) {
+                goBtn.visibility=View.INVISIBLE
+                batchCard.visibility=View.VISIBLE
+                subjectName.text=batch.name
+                ownerName.text=batch.owner
+
+            }
+
+
+            })
 
     }
 
