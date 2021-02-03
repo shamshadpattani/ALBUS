@@ -10,7 +10,7 @@ class ScheduleItemQuickAdapter(data: MutableList<ScheduleData>?):
     BaseQuickAdapter<ScheduleData, BaseViewHolder>(R.layout.list_batch_details,data as MutableList<ScheduleData>) {
 
     override fun convert(holder: BaseViewHolder, item: ScheduleData) {
-        holder.setText(R.id.subjectDate, item.date?:"Nothing scheduled")
+        holder.setText(R.id.subjectDate, item.date)
             .setText(R.id.subjectLocation,item.location)
             .setText(R.id.subjectTitle,item.name)
     }

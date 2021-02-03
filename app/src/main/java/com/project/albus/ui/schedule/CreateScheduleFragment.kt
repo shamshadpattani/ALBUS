@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.firebase.auth.FirebaseAuth
 import com.project.albus.R
@@ -16,7 +17,6 @@ import kotlinx.android.synthetic.main.fragment_create_batch.*
 
 
 class CreateScheduleFragment : Fragment() {
-    var user = FirebaseAuth.getInstance().currentUser?.uid
     lateinit var binding: FragmentCreateSchedulesBinding
    private val args: CreateScheduleFragmentArgs by navArgs()
     private lateinit var mAdapter: ScheduleItemQuickAdapter
@@ -46,6 +46,7 @@ class CreateScheduleFragment : Fragment() {
     private fun init() {
        createBtn.setOnClickListener {
            viewModel.updateSchedules(args.code)
+           requireActivity().onBackPressed()
        }
     }
 }

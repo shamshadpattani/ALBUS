@@ -21,4 +21,5 @@
 
     <color name="colorSecondarySurface">#f0f0f0</color>
     <color name="colorSecondarySurfaceDivider">#22000000</color>
+    <color name="textColorCard">#EFE7E7</color>
 </resources>

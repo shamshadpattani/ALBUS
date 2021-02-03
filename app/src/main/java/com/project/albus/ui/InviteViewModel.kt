@@ -1,12 +1,8 @@
-package com.project.albus.ui.batch
+package com.project.albus.ui
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.*
-import com.aventrix.jnanoid.jnanoid.NanoIdUtils
 import com.project.albus.data.BatchRepository
-import java.util.*
-import com.project.albus.data.BatchDetails
 
 class InviteViewModel(application: Application) : AndroidViewModel(application) {
 

@@ -56,7 +56,10 @@
             app:argType="string" />
         <action
             android:id="@+id/action_batchDetailsFragment_to_createScheduleFragment"
-            app:destination="@id/createScheduleFragment" />
+            app:destination="@id/createScheduleFragment"
+            app:popUpTo="@id/batchDetailsFragment"
+            app:popUpToInclusive="true"
+            />
     </fragment>
     <fragment
         android:id="@+id/createScheduleFragment"

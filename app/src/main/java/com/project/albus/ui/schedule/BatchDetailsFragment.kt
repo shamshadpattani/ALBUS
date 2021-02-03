@@ -15,22 +15,26 @@ import com.project.albus.R
 import com.project.albus.databinding.FragmentBatchDetailsBindingImpl
 import com.project.albus.ui.MainViewModel
 import kotlinx.android.synthetic.main.fragment_batch_details.*
+import kotlinx.android.synthetic.main.fragment_batch_details.recyclerview
+import kotlinx.android.synthetic.main.fragment_batch_details.toolbar
+import kotlinx.android.synthetic.main.fragment_schedule.*
 
 
 class BatchDetailsFragment : Fragment() {
 
     lateinit var binding: FragmentBatchDetailsBindingImpl
-   private val args: BatchDetailsFragmentArgs by navArgs()
+    private val args: BatchDetailsFragmentArgs by navArgs()
     private lateinit var mAdapter: ScheduleItemQuickAdapter
-   private  val viewModel: MainViewModel by activityViewModels()
+    private val viewModel: MainViewModel by activityViewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_batch_details, container, false)
@@ -53,22 +57,22 @@ class BatchDetailsFragment : Fragment() {
     }
 
     private fun observe() {
-        viewModel.batchDetails.observe(viewLifecycleOwner,{batch->
-            toolbar.title=batch?.name
-            if(!batch?.schedules.isNullOrEmpty()){
-                nothingScheduledView.visibility=View.GONE
+        viewModel.batchDetails.observe(viewLifecycleOwner, { batch ->
+            toolbar.title = batch?.name
+            if (!batch?.schedules.isNullOrEmpty()) {
+                nothingScheduledView.visibility = View.GONE
                 mAdapter.updateItems(batch?.schedules!!)
-            }else{
+            } else {
                 var user = FirebaseAuth.getInstance().currentUser?.uid
-                nothingScheduledView.visibility=View.VISIBLE
-                if(user==batch?.owner){
-                    scheduleCreateBtn.visibility=View.VISIBLE
+                nothingScheduledView.visibility = View.VISIBLE
+                if (user == batch?.owner) {
+                    scheduleCreateBtn.visibility = View.VISIBLE
                     scheduleCreateBtn.setOnClickListener {
                         val action = BatchDetailsFragmentDirections.actionBatchDetailsFragmentToCreateScheduleFragment(args.code)
                         findNavController().navigate(action)
                     }
-                }else{
-                    scheduleCreateBtn.visibility=View.GONE
+                } else {
+                    scheduleCreateBtn.visibility = View.GONE
                 }
             }
         })
@@ -76,5 +80,13 @@ class BatchDetailsFragment : Fragment() {
 
     private fun init() {
         viewModel.getDetails(args.code)
+
+        toolbar.setOnMenuItemClickListener {
+            if (it.itemId == R.id.menu_info) {
+                val action =  BatchDetailsFragmentDirections.actionBatchDetailsFragmentToCreateScheduleFragment(args.code)
+                findNavController().navigate(action)
+            }
+            true
+        }
     }
 }

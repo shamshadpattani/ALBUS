@@ -29,6 +29,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     val isSaved: LiveData<Boolean> = _isSaved
 
     val code: MutableLiveData<String> = MutableLiveData()
+    val inviteCode: MutableLiveData<String> = MutableLiveData()
     val batchName: MutableLiveData<String> = MutableLiveData()
 
     val subjectName: MutableLiveData<String> = MutableLiveData()
@@ -127,7 +128,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun updateSchedules(code: String) {
-       var scheduleData:List<ScheduleData> = listOf(ScheduleData(name = subjectName.value, note = note.value, location = location.value, date = date.value))
+       var scheduleData:ScheduleData = ScheduleData(name = subjectName.value, note = note.value, location = location.value, date = date.value)
         batchRepo.update(scheduleData, code)?.addOnFailureListener {
             Log.e(TAG, "Failed to save Batch!$it")
             _isSaved.postValue(false)
@@ -137,6 +138,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 _isSaved.postValue(true)
             }
     }
+
 
 }
 
