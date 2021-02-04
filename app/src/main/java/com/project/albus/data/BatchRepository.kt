@@ -49,8 +49,10 @@ class BatchRepository(c: Application) {
        return documentReference
     }
 
-    fun getInviteBatch(inviteCode: String?): DocumentReference? {
-        return inviteCode?.let { firestoreDB.collection("Batch").document(it) }
+
+    fun updateMember(code: String):Task<Void> {
+        val documentReference = firestoreDB.collection("Batch").document(code).update("members",FieldValue.arrayUnion(owner))
+        return documentReference
     }
 
 

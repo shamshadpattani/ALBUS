@@ -28,6 +28,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val _isSaved = MutableLiveData<Boolean>(false)
     val isSaved: LiveData<Boolean> = _isSaved
 
+    private val _isMember = MutableLiveData<Boolean>(false)
+    val isMember: LiveData<Boolean> = _isMember
+
     val code: MutableLiveData<String> = MutableLiveData()
     val inviteCode: MutableLiveData<String> = MutableLiveData()
     val batchName: MutableLiveData<String> = MutableLiveData()
@@ -85,10 +88,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 Log.e(TAG, "Failed to save Batch!")
                 _isSaved.postValue(false)
             }
-                ?.addOnSuccessListener {
-                    Log.e(TAG, "Success to save Batch!")
-                    _isSaved.postValue(true)
-                }
+                    ?.addOnSuccessListener {
+                        Log.e(TAG, "Success to save Batch!")
+                        _isSaved.postValue(true)
+                    }
 
         }
     }
@@ -103,11 +106,11 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
             var savedBatchDetails: MutableList<BatchDetails> = mutableListOf()
             for (doc in value!!) {
-                    //var batchItems = doc.toObject(BatchDetails::class.java)
-                        var d=doc.data
-                var c=d.values
+                //var batchItems = doc.toObject(BatchDetails::class.java)
+                var d = doc.data
+                var c = d.values
                 var batchItems = doc.toObject(BatchDetails::class.java)
-                    savedBatchDetails.add(batchItems)
+                savedBatchDetails.add(batchItems)
             }
             _savedBatchDetailsList.value = savedBatchDetails
         }
@@ -122,24 +125,33 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 _batchDetails.value = null
                 return@addSnapshotListener
             }
-              var savedbatchDetails: BatchDetails? = value?.toObject(BatchDetails::class.java)
+            var savedbatchDetails: BatchDetails? = value?.toObject(BatchDetails::class.java)
             _batchDetails.value = savedbatchDetails
         }
     }
 
     fun updateSchedules(code: String) {
-       var scheduleData:ScheduleData = ScheduleData(name = subjectName.value, note = note.value, location = location.value, date = date.value)
+        var scheduleData: ScheduleData = ScheduleData(name = subjectName.value, note = note.value, location = location.value, date = date.value)
         batchRepo.update(scheduleData, code)?.addOnFailureListener {
             Log.e(TAG, "Failed to save Batch!$it")
             _isSaved.postValue(false)
         }
-            ?.addOnSuccessListener {
-                Log.e(TAG, "Success to save Batch!")
-                _isSaved.postValue(true)
-            }
+                ?.addOnSuccessListener {
+                    Log.e(TAG, "Success to save Batch!")
+                    _isSaved.postValue(true)
+                }
     }
 
-
+    fun updateMember(code: String) {
+        batchRepo.updateMember(code).addOnFailureListener {
+            Log.e(TAG, "Failed to save Batch!$it")
+            _isMember.postValue(false)
+        }
+                .addOnSuccessListener {
+                    Log.e(TAG, "Success to save Batch!")
+                    _isMember.postValue(true)
+                }
+    }
 }
 
 
